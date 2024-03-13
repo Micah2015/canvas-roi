@@ -70,7 +70,8 @@ const CanvasRoiComponent = React.forwardRef<
       proxyMethods[name] = ((...args: Parameters<RefMethod[K]>) => {
         const method = $roi.current && $roi.current[name]
         if (method && method instanceof Function) {
-          return (method as any)(...args)
+          const func = (method as any).bind($roi.current)
+          return (func as any)(...args)
         }
       }) as RefMethod[K]
     })

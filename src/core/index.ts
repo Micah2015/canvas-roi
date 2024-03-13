@@ -331,7 +331,7 @@ export default class CanvasRoi {
     this._emitEvent('onDrawEnd')
     const { reverse, singleType } = this.$opts
     reverse ? this.paths.unshift(this.newPath) : this.paths.push(this.newPath)
-    this._emitValue()
+    this._emitValue('add', reverse ? 0 : this.paths.length - 1)
     !singleType && this.choosePath(reverse ? 0 : this.paths.length - 1)
     this._resetNewPath()
   }
