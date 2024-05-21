@@ -1,5 +1,5 @@
 {
-  "name": "@wxhccc/canvas-roi",
+  "name": "@micah2015/canvas-roi",
   "version": "2.3.0",
   "description": "",
   "main": "dist/index.cjs.js",
@@ -59,9 +59,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:wxhccc/canvas-roi.git"
+    "url": "git@github.com:Micah2015/canvas-roi.git"
   },
-  "author": "wxhccc",
+  "author": "Micah2015",
   "license": "MIT",
   "husky": {
     "hooks": {

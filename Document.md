@@ -32,7 +32,7 @@
 NPM:
 
 ```shell
-npm install @wxhccc/canvas-roi --save
+npm install @micah2015/canvas-roi --save
 ```
 
 CDN:
@@ -44,7 +44,7 @@ CDN:
 ### 用法
 
 ```js
-import CanvasRoi from '@wxhccc/canvas-roi';
+import CanvasRoi from '@micah2015/canvas-roi';
 
 new CanvasRoi(element[, options]);
 
@@ -65,7 +65,7 @@ new CanvasRoi(element[, options]);
 ```
 
 ```js
-import { CanvasRoi } from '@wxhccc/canvas-roi';
+import { CanvasRoi } from '@micah2015/canvas-roi';
 
 const roi = new CanvasRoi('.roi-container', {
   // input回调函数可从组件内接收数据的变化
@@ -548,7 +548,7 @@ canvas画布的上下文，可用于自定义绘制逻辑。
 </template>
 <script>
 ...
-import CanvasRoi from '@wxhccc/canvas-roi/dist/vue-roi';
+import CanvasRoi from '@micah2015/canvas-roi/dist/vue-roi';
 
 ...
 components: {
@@ -600,7 +600,7 @@ data: {
 
 ```
 
-import CanvasRoi from '@wxhccc/canvas-roi/dist/react-roi';
+import CanvasRoi from '@micah2015/canvas-roi/dist/react-roi';
 
 ...
 

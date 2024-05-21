@@ -13,7 +13,7 @@
 NPM:
 
 ```shell
-npm install @wxhccc/canvas-roi --save
+npm install @micah2015/canvas-roi --save
 ```
 
 CDN:
@@ -32,7 +32,7 @@ CDN:
 ```
 
 ```js
-import { CanvasRoi } from '@wxhccc/canvas-roi';
+import { CanvasRoi } from '@micah2015/canvas-roi';
 
 const roi = new CanvasRoi('.roi-container', {
   // input回调函数可从组件内接收数据的变化
