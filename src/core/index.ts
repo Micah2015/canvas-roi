@@ -237,7 +237,7 @@ export default class CanvasRoi {
 
     this._completePathsInfo(value)
     this._emitEvent('onInput', this._switchCoordsScale(value))
-    this._emitEvent('onChange', changeType, index)
+    this._emitEvent('onChange', changeType, index, value)
   }
 
   _completePathsInfo(values: RoiPath[]): void {
