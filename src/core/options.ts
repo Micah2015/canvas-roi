@@ -2,6 +2,8 @@ import { RoiOptions } from '../types'
 
 export function defaultOptions(): RoiOptions {
   return {
+    currentName: '',
+    nameStyleMap: {},
     readonly: false,
     canvasScale: 2,
     globalStyles: {

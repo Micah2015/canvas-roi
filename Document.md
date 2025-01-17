@@ -98,6 +98,38 @@ roi.setValue(value)
 
 **配置对象中的属性，会进行2层深度的浅合并**
 
+### currentName
+
+- Type: `String`
+- Default: `''`
+
+添加 `RoiPath` 时添加的 `name`
+
+### nameStyleMap
+
+- Type: `Object`
+- Default: `{}`
+
+添加 `RoiPath` 时会根据 `currentName`，获取对应键值，添加到`RoiPath` 的`styles`
+
+`nameStyleMap` 参考: 
+
+```js
+{
+    // foreground 为 RoiPath 的 name
+    foreground: {
+        lineWidth: 12,
+        fillStyle: 'rgba(0, 0, 0, 0)',
+        strokeStyle: '#FF0000',
+    },
+    background: {
+        lineWidth: 12,
+        fillStyle: 'rgba(0, 0, 0, 0)',
+        strokeStyle: '#00FF00',
+    }
+}
+```
+
 ### readonly
 
 - Type: `Boolean`

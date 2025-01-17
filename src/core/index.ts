@@ -330,6 +330,15 @@ export default class CanvasRoi {
   _addNewPath(): void {
     this._emitEvent('onDrawEnd')
     const { reverse, singleType } = this.$opts
+
+    this.newPath.name = this.$opts.currentName || ''
+    const nameStyleMap = this.$opts.nameStyleMap
+    if (this.newPath.name && nameStyleMap) {
+      if (nameStyleMap[this.newPath.name]) {
+        this.newPath.styles = nameStyleMap[this.newPath.name]
+      }
+    }
+
     reverse ? this.paths.unshift(this.newPath) : this.paths.push(this.newPath)
     this._emitValue('add', reverse ? 0 : this.paths.length - 1)
     !singleType && this.choosePath(reverse ? 0 : this.paths.length - 1)

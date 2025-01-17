@@ -67,6 +67,7 @@ export interface RoiPath {
   start?: Point
   width?: number
   height?: number
+  name?: string
 }
 
 export type GlobalStyles = Context2DStyles &
@@ -78,6 +79,10 @@ export type PathChangeType = 'add' | 'modify' | 'delete'
 
 /** 组件配置对象 */
 export interface RoiOptions {
+  /** 当前RoiPath的name */
+  currentName?: string
+  nameStyleMap?: Record<string, Context2DStyles>
+
   /** 是否只读，只读模式下仍可以选中选区 */
   readonly: boolean
   /** canvas元素的放大比例，默认为2像素 */
@@ -172,8 +177,8 @@ export type ElementOrSelector = HTMLElement | string
 
 export type PowerPartial<T> = {
   [U in keyof T]?: T[U] extends Record<string, unknown>
-    ? PowerPartial<T[U]>
-    : T[U]
+  ? PowerPartial<T[U]>
+  : T[U]
 }
 
 export type NotObject<T> = T extends Record<string, unknown> ? never : T
