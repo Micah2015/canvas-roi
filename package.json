@@ -75,5 +75,8 @@
     "*.ts?(x)": [
       "prettier --parser=typescript --write"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
