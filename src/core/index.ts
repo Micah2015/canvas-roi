@@ -50,6 +50,7 @@ export default class CanvasRoi {
   hasInvertPath!: boolean
   choseIndex!: number
   resizeTicker!: number
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   _events: { [key in CanvasMouseEvents]: (...args: any[]) => unknown }
   _ElObserver: ResizeObserver | undefined
   _ElScaleObserver: MediaQueryList | undefined
@@ -234,10 +235,11 @@ export default class CanvasRoi {
 
   _emitValue(changeType: PathChangeType = 'add', index = 0): void {
     const value = this.paths
+    const values = this._switchCoordsScale(value)
 
     this._completePathsInfo(value)
-    this._emitEvent('onInput', this._switchCoordsScale(value))
-    this._emitEvent('onChange', changeType, index, value)
+    this._emitEvent('onInput', values)
+    this._emitEvent('onChange', changeType, index, value, values)
   }
 
   _completePathsInfo(values: RoiPath[]): void {

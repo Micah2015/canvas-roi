@@ -33,6 +33,7 @@ export type DragPathTypes = 'rect' | 'circle'
 export type PathTypes = ClickPathTypes | DragPathTypes
 
 export interface CustomHanlder {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (...args: any[]): void
 }
 
@@ -150,7 +151,12 @@ export interface RoiOptions {
   /** 绑定选区数据发生变化时触发 */
   onInput?: (value: RoiPath[]) => void
   /** 单一选区发生变化时出发 */
-  onChange?: (type: PathChangeType, index: number) => void
+  onChange?: (
+    type: PathChangeType,
+    index: number,
+    value: RoiPath,
+    values: RoiPath[]
+  ) => void
   /** 当前选中选区索引变化时触发 */
   onChoose?: (index: number) => void
   /** 组件容器尺寸变化时触发 */
@@ -177,8 +183,8 @@ export type ElementOrSelector = HTMLElement | string
 
 export type PowerPartial<T> = {
   [U in keyof T]?: T[U] extends Record<string, unknown>
-  ? PowerPartial<T[U]>
-  : T[U]
+    ? PowerPartial<T[U]>
+    : T[U]
 }
 
 export type NotObject<T> = T extends Record<string, unknown> ? never : T
