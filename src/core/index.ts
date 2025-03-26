@@ -239,7 +239,7 @@ export default class CanvasRoi {
 
     this._completePathsInfo(value)
     this._emitEvent('onInput', values)
-    this._emitEvent('onChange', changeType, index, value, values)
+    this._emitEvent('onChange', changeType, index, value[index], values)
   }
 
   _completePathsInfo(values: RoiPath[]): void {
@@ -334,6 +334,7 @@ export default class CanvasRoi {
     const { reverse, singleType } = this.$opts
 
     this.newPath.name = this.$opts.currentName || ''
+    this.newPath.id = this.$opts.currentId || ''
     const nameStyleMap = this.$opts.nameStyleMap
     if (this.newPath.name && nameStyleMap) {
       if (nameStyleMap[this.newPath.name]) {

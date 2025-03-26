@@ -69,6 +69,7 @@ export interface RoiPath {
   width?: number
   height?: number
   name?: string
+  id?: string
 }
 
 export type GlobalStyles = Context2DStyles &
@@ -81,6 +82,7 @@ export type PathChangeType = 'add' | 'modify' | 'delete'
 /** 组件配置对象 */
 export interface RoiOptions {
   /** 当前RoiPath的name */
+  currentId?: string
   currentName?: string
   nameStyleMap?: Record<string, Context2DStyles>
 
