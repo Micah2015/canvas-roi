@@ -99,6 +99,9 @@ function drawExistRoiPath(
   type !== 'point' && stroke && this.$ctx.stroke()
   !this.$opts.readonly && type === 'polygon' && drawPointSign.call(this, points)
   !focusStyles && (this.$ctx.globalAlpha = 1)
+
+  type == 'rect' && drawRectName.call(this, path)
+
   this.$ctx.restore()
 }
 
@@ -141,6 +144,41 @@ function drawPointSign(this: CanvasRoi, points: Point[]) {
     ctx.fill()
   })
   this.$ctx.restore()
+}
+
+function drawRectName(this: CanvasRoi, path: RoiPath) {
+  if (!this.$ctx) return
+  const { points, name } = path
+  const xOffset = this.$opts.rectText?.xOffset || 15
+  const yOffset = this.$opts.rectText?.yOffset || 40
+  const font = this.$opts.rectText?.font || '30px Arial'
+  const styles = path.styles || this.$opts.globalStyles || {}
+  if (!name) return
+  if (!points || points.length < 2) return
+
+  const ctx = this.$ctx
+  ctx.save()
+
+  const getLeftTopPoint = (points: Point[]) => {
+    if (points.length === 0) return { x: 0, y: 0 }
+    let { x, y } = points[0]
+    for (let i = 0; i < points.length; i++) {
+      const { x: x1, y: y1 } = points[i]
+      x = x < x1 ? x : x1
+      y = y < y1 ? y : y1
+    }
+    return { x, y }
+  }
+
+  const { x, y } = getLeftTopPoint(points)
+  ctx.font = font
+  ctx.fillStyle = 'yellow'
+  if (styles.strokeStyle) {
+    ctx.fillStyle = styles.strokeStyle
+  }
+  ctx.fillText(name, x + xOffset, y + yOffset)
+
+  ctx.restore()
 }
 
 function drawOpeDragPoint(this: CanvasRoi, point: Point) {

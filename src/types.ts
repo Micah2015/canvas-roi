@@ -85,6 +85,11 @@ export interface RoiOptions {
   currentId?: string
   currentName?: string
   nameStyleMap?: Record<string, Context2DStyles>
+  rectText?: {
+    xOffset?: number
+    yOffset?: number
+    font?: string
+  }
 
   /** 是否只读，只读模式下仍可以选中选区 */
   readonly: boolean
